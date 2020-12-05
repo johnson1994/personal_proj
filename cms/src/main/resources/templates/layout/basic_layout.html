@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="basic_layout(main_content, selected_menu_name)">
+    <head>
+        <title th:text="'cms-'+${selected_menu_name}"></title>
+    </head>
+    <body>
+        <div class="side_menu" th:replace="layout/side_menu::side_menu_frag"></div>
+        <div class="main_content" th:replace="${main_content}"></div>
+    </body>
+</html>

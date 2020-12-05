@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>cms_home</title>
-</head>
-<body>
-hello world cms
-</body>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/basic_layout::basic_layout(~{::home_content},'home')}">
+
+<section th:fragment="home_content">
+    <div>
+        home page content
+    </div>
+</section>
+
 </html>
