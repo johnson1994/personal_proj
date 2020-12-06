@@ -1,8 +1,47 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-    <div th:fragment="side_menu_frag">
-        side menu fragment
+    <div class="side_menu" th:fragment="side_menu_frag(selected_menu_name)">
+        <style>
+            .side_menu ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .side_menu ul li {
+                width: calc(100% - 1px);
+                border: 1px solid #cdcdcd;
+                cursor: pointer;
+            }
+
+            .side_menu ul li:hover,
+            .side_menu ul li.active {
+                background-color: #cdcdcd;
+                color: #111;
+            }
+
+            .side_menu ul li a{
+                margin-left: 5px;
+                color: inherit;
+                text-decoration:none;
+            }
+        </style>
+        <ul>
+            <li th:classappend="${selected_menu_name == 'home'}?'active':''">
+                <a href="">home</a>
+            </li>
+            <li>
+                <a href="">菜单2</a>
+            </li>
+            <li>
+                <a href="">菜单3</a>
+            </li>
+            <li>
+                <a href="">菜单4</a>
+            </li>
+        </ul>
+
     </div>
 
 </html>

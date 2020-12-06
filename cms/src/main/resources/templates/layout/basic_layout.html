@@ -3,9 +3,53 @@
       th:fragment="basic_layout(main_content, selected_menu_name)">
     <head>
         <title th:text="'cms-'+${selected_menu_name}"></title>
+        <style>
+            table.default_layout {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            table.default_layout,
+            table.default_layout td {
+                border: 1px solid #ababab;
+                padding: 0;
+            }
+            .default_layout .content{
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .default_layout .logo_title{
+                margin: 0;
+                padding: 0;
+                font-size: 14px;
+            }
+        </style>
+        <link rel="stylesheet" th:href="@{/css/cms.css}"/>
     </head>
     <body>
-        <div class="side_menu" th:replace="layout/side_menu::side_menu_frag"></div>
-        <div class="main_content" th:replace="${main_content}"></div>
+        <table class="default_layout">
+            <tr>
+                <td width="150px" height="30px" align="center">
+                    <h1 class="logo_title">CMS系统</h1>
+                </td>
+                <td height="30px">
+                    <div class="content" th:insert="layout/cms_header::cms_header(${selected_menu_name})"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="content" th:insert="layout/side_menu::side_menu_frag(${selected_menu_name})"></div>
+                </td>
+                <td>
+                    <div class="content" th:insert="${main_content}"></div>
+                </td>
+            </tr>
+        </table>
     </body>
 </html>

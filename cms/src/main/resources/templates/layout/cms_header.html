@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <div class="cms_header" th:fragment="cms_header(selected_menu_name)">
+        <style>
+            .cms_header{
+                height: 100%;
+            }
+            .cms_header .left{
+                display: inline-block;
+                height: 100%;
+            }
+            .cms_header .right{
+                display: inline-block;
+                float:right;
+                height: 100%;
+            }
+            .cms_header .header_title{
+                display: inline-block;
+                margin: 5px 0 0 10px;
+            }
+        </style>
+        <div class="left">
+            <span class="header_title" th:text="${selected_menu_name}"></span>
+        </div>
+        <div class="right">
+            <a href="#">用户名</a>
+            <a href="#">退出</a>
+        </div>
+    </div>
+</html>
