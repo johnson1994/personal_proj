@@ -9,6 +9,7 @@ import javax.persistence.*;
 /**
  * 菜单对象
  */
+@Table(name = "menu")
 @Data
 @Entity
 public class MenuEntity extends BaseEntity {

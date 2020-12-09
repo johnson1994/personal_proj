@@ -21,25 +21,20 @@
                 color: #111;
             }
 
-            .side_menu ul li a{
+            .side_menu ul li a {
                 margin-left: 5px;
                 color: inherit;
-                text-decoration:none;
+                text-decoration: none;
+                width: 100%;
+                display: inline-block;
             }
         </style>
         <ul>
-            <li th:classappend="${selected_menu_name == 'home'}?'active':''">
-                <a href="">home</a>
-            </li>
-            <li>
-                <a href="">菜单2</a>
-            </li>
-            <li>
-                <a href="">菜单3</a>
-            </li>
-            <li>
-                <a href="">菜单4</a>
-            </li>
+            <th:block th:each="menu_item:${session.cms_menu}">
+                <li th:classappend="${selected_menu_name == menu_item.getMenuCode()}?'active':''">
+                    <a th:href="${menu_item.getUrl()}" th:text="${menu_item.getMenuName()}"></a>
+                </li>
+            </th:block>
         </ul>
 
     </div>

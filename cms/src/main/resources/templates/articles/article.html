@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/basic_layout::basic_layout(~{::article_content},'article')}">
+
+<section th:fragment="article_content">
+    article page content
+</section>
+
+</html>
